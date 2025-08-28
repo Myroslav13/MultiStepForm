@@ -1,9 +1,4 @@
-import type { FormData } from '../interface'
-
-interface Props {
-    data: FormData;
-    setData: React.Dispatch<React.SetStateAction<FormData>>;
-}
+import type { Props } from '../interface'
 
 function SelectPlan({data, setData}:Props) {
 

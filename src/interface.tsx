@@ -8,3 +8,8 @@ export interface FormData {
   selectedTime: boolean;
   selectedAddOns: number[];
 }
+
+export interface Props {
+    data: FormData;
+    setData: React.Dispatch<React.SetStateAction<FormData>>;
+}

@@ -24,11 +24,11 @@ function App() {
         {pageNumber === 0 ? <PersonalInfo data={data} setData={setData}></PersonalInfo> : <></>}
         {pageNumber === 1 ? <SelectPlan data={data} setData={setData}></SelectPlan> : <></>}
         {pageNumber === 2 ? <AddOns data={data} setData={setData}></AddOns> : <></>}
-        {pageNumber === 3 ? <Summary></Summary> : <></>}
+        {pageNumber === 3 ? <Summary data={data} setData={setData}></Summary> : <></>}
         {pageNumber === 4 ? <Congrats></Congrats> : <></>}
 
         <div>
-          {pageNumber > 0 ? <button className="btn-back" onClick={() => setPageNumber(prev => (prev - 1))}>Go Back</button>: <></>}
+          {(pageNumber > 0 && pageNumber !== 4) ? <button className="btn-back" onClick={() => setPageNumber(prev => (prev - 1))}>Go Back</button>: <></>}
           {pageNumber < 4 ? <button className="btn-next" onClick={() => setPageNumber(prev => (prev + 1))}>{pageNumber === 3 ? "Confirm":"Next Step"}</button>: <></>}
         </div>
       </div>
