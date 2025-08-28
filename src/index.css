@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --main-blue: #042956;
 }
 
 a {
@@ -111,7 +113,7 @@ button:focus-visible {
 }
 
 .div-main-form h1 {
-  color: #042956;
+  color: var(--main-blue);
   font-size: 32px;
   font-weight: bold;
 }
@@ -120,7 +122,7 @@ button:focus-visible {
   color: gray;
 }
 
-input {
+input[type="text"] {
   border: 1px solid lightgray;
   border-radius: 5px;
   padding-left: 15px;
@@ -131,16 +133,122 @@ input {
   margin-top: 6px;
 }
 
+label, .col-4 h2, .div-addon h2 {
+  color: var(--main-blue);
+}
+
 label {
-  color: #042956;
   font-size: 12px;
   font-weight: bold;
 }
 
 button {
-  color: white;
-  background-color: #042956;
   position: absolute;
   bottom: 20px;
+  height: 45px;
+}
+
+.btn-next {
+  width: 115px;
   right: 60px;
+  background-color: var(--main-blue);
+  color: white;
+}
+
+.btn-back {
+  background-color: white;
+  color: gray;
+  left: 60px;
+  width: fit-content;
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-4 {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 16px;
+  width: 152px;
+  cursor: pointer;
+}
+
+.col-4.active {
+  background-color: #f8f9fe;
+  border: 1px solid var(--main-blue);
+}
+
+.col-4 img {
+  padding-bottom: 40px;
+}
+
+.col-4 h2, .div-addon h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.col-4 p {
+  margin: 0;
+}
+
+.div-time-period {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #f8f9fe;
+  height: 40px;
+}
+
+.form-switch {
+  margin: 0;
+  padding-right: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-check-label {
+  color: gray;
+}
+
+.form-check-label.active {
+  color: var(--main-blue);
+}
+
+.p-note {
+  color: var(--main-blue) !important;
+}
+
+.div-addon {
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.div-addon.active {
+  background-color: #f8f9fe;
+  border: 1px solid #524e98;
+}
+
+.div-addon .form-check-input {
+  margin: 0;
+}
+
+.div-addon h2 {
+  font-size: 16px;
+}
+
+.p-plus-money {
+  margin: 0;
+  color: #524e98 !important;
+}
+
+.p-addon-description {
+  margin: 0;
+  font-size: 16px;
 }

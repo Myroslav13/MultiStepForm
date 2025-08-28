@@ -1,17 +1,13 @@
-import type { Props } from "../interface"
-
-function Summary({ setPageNumber }:Props) {
+function Summary() {
 
     return (
-        <div>
-            Finishing up
-            Double-check everything looks OK before confirming.
+        <div className="text-start">
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
 
-
-            Total (per month/year)
-
-            Go Back
-            Confirm
+            <div>
+                Total (per month/year)
+            </div>
         </div>
     )
 }
