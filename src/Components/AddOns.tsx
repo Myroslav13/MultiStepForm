@@ -1,7 +1,9 @@
-function AddOns() {
+import type { Props } from "../interface"
+
+function AddOns({ setPageNumber }:Props) {
 
     return (
-        <>
+        <div>
             Pick add-ons
             Add-ons help enhance your gaming experience.
 
@@ -19,7 +21,7 @@ function AddOns() {
 
             Go Back
             Next Step
-        </>
+        </div>
     )
 }
 

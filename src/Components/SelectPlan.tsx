@@ -1,11 +1,12 @@
-function SelectPlan() {
-    
-    return (
-        <>
-            Select your plan
-            You have the option of monthly or yearly billing.
+import type { Props } from "../interface"
 
-            Arcade
+function SelectPlan({ setPageNumber }:Props) {
+    return (
+        <div>
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
+
+            <label>Arcade</label>
             $9/mo
 
             Advanced
@@ -19,7 +20,7 @@ function SelectPlan() {
 
             Go Back
             Next Step
-        </>
+        </div>
     )
 }
 

@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #eef5ff;
 }
 
 h1 {
@@ -65,4 +66,81 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.div-side-block {
+  background-image: url("assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 350px;
+  height: 450px;
+}
+
+.div-main-block {
+  background-color: white;
+  width: 900px;
+}
+
+.div-main-form {
+  padding: 25px 60px;
+  width: 800px;
+}
+
+.div-side-block h2 {
+  font-size: 12px;
+  color: lightgray;
+  margin-bottom: 6px;
+}
+
+.div-side-block h1 {
+  font-size: 12px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.div-circle {
+  width: 35px;
+  height: 35px;
+  font-weight: bold;
+}
+
+.div-circle.active {
+  background-color: #bee1fd;
+  border: 1px solid #bee1fd !important;
+  color: #072853;
+}
+
+.div-main-form h1 {
+  color: #042956;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.div-main-form p {
+  color: gray;
+}
+
+input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 6px;
+}
+
+label {
+  color: #042956;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+button {
+  color: white;
+  background-color: #042956;
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
 }

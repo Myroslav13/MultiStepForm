@@ -1,21 +1,27 @@
-function PersonalInfo() {
+import type { Props } from "../interface"
 
-    return (
-        <>
-            Personal info
-            Please provide your name, email address, and phone number.
+function PersonalInfo({ setPageNumber }:Props) {
 
-            Name
-            e.g. Stephen King
+    return ( 
+        <div className="text-start">
+            <h1>Personal info</h1>
+            <p>Please provide your name, email address, and phone number.</p>
 
-            Email Address
-            e.g. stephenking@lorem.com
+            <div className="d-flex flex-column align-items-start">
+                <label>Name</label>
+                <input placeholder="e.g. Stephen King"></input>
+            </div>
 
-            Phone Number
-            e.g. +1 234 567 890
+            <div className="d-flex flex-column align-items-start">
+                <label>Email Address</label>
+                <input placeholder="e.g. stephenking@lorem.com"></input>
+            </div>
 
-            Next Step
-        </>
+            <div className="d-flex flex-column align-items-start">
+                <label>Phone Number</label>
+                <input placeholder="e.g. +1 234 567 890"></input>
+            </div>
+        </div>
     )
 }
 
