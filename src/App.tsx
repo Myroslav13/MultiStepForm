@@ -6,10 +6,23 @@ import SelectPlan from './Components/SelectPlan'
 import AddOns from './Components/AddOns'
 import Summary from './Components/Summary'
 import Congrats from './Congrats'
-import type { FormData } from './interface'
+import type { AddOn, Plan, FormData } from './interface'
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0)
+
+  const allPlans: Plan[] = [
+    {name: "Arcade", monthlyPayment: 9, yearlyPayment: 90}, 
+    {name: "Advanced", monthlyPayment: 12, yearlyPayment: 120},
+    {name: "Pro", monthlyPayment: 15, yearlyPayment: 150},
+  ]
+
+  const allAddOns: AddOn[] = [
+    {name: "Online Service", monthlyPayment: 1, yearlyPayment: 10}, 
+    {name: "Larger Storage", monthlyPayment: 2, yearlyPayment: 20},
+    {name: "Customizable profile", monthlyPayment: 2, yearlyPayment: 20},
+  ]
+
   const [data, setData] = useState<FormData>({
     personalInfo: { name: "", email: "", phone: "" },
     selectedPlan: 0,
@@ -24,12 +37,12 @@ function App() {
         {pageNumber === 0 ? <PersonalInfo data={data} setData={setData}></PersonalInfo> : <></>}
         {pageNumber === 1 ? <SelectPlan data={data} setData={setData}></SelectPlan> : <></>}
         {pageNumber === 2 ? <AddOns data={data} setData={setData}></AddOns> : <></>}
-        {pageNumber === 3 ? <Summary data={data} setData={setData}></Summary> : <></>}
+        {pageNumber === 3 ? <Summary data={data} allPlans={allPlans} allAddOns={allAddOns} setPageNumber={setPageNumber}></Summary> : <></>}
         {pageNumber === 4 ? <Congrats></Congrats> : <></>}
 
         <div>
           {(pageNumber > 0 && pageNumber !== 4) ? <button className="btn-back" onClick={() => setPageNumber(prev => (prev - 1))}>Go Back</button>: <></>}
-          {pageNumber < 4 ? <button className="btn-next" onClick={() => setPageNumber(prev => (prev + 1))}>{pageNumber === 3 ? "Confirm":"Next Step"}</button>: <></>}
+          {pageNumber < 4 ? <button className={`${pageNumber === 3 ? "btn-confirm":"btn-next"}`} onClick={() => setPageNumber(prev => (prev + 1))}>{pageNumber === 3 ? "Confirm":"Next Step"}</button>: <></>}
         </div>
       </div>
     </div>

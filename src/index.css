@@ -148,11 +148,15 @@ button {
   height: 45px;
 }
 
-.btn-next {
+.btn-next, .btn-confirm {
   width: 115px;
   right: 60px;
   background-color: var(--main-blue);
   color: white;
+}
+
+.btn-confirm {
+  background-color: #483ffc !important;
 }
 
 .btn-back {
@@ -214,11 +218,7 @@ button {
   color: gray;
 }
 
-.form-check-label.active {
-  color: var(--main-blue);
-}
-
-.p-note {
+.p-note, .p-price, .form-check-label.active {
   color: var(--main-blue) !important;
 }
 
@@ -243,9 +243,13 @@ button {
   font-size: 16px;
 }
 
-.p-plus-money {
+.p-plus-money, .h3-total-price {
   margin: 0;
   color: #524e98 !important;
+}
+
+.h3-total-price {
+  font-size: 20px;
 }
 
 .p-addon-description {
@@ -256,10 +260,15 @@ button {
 .div-expenses {
   background-color: #f8f9fe;
   border-radius: 8px;
-  padding: 20px;
+  padding: 16px 20px 0px 20px;
+}
+
+.div-total {
+  padding: 0px 20px;
 }
 
 .p-headline {
   color: gray;
   font-size: 14px;
+  margin-bottom: 20px;
 }

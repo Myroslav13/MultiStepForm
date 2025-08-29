@@ -9,7 +9,19 @@ export interface FormData {
   selectedAddOns: number[];
 }
 
+export interface Plan {
+  name: string;
+  monthlyPayment: number;
+  yearlyPayment: number;
+}
+
+export interface AddOn {
+  name: string;
+  monthlyPayment: number;
+  yearlyPayment: number;
+}
+
 export interface Props {
-    data: FormData;
-    setData: React.Dispatch<React.SetStateAction<FormData>>;
+  data: FormData;
+  setData: React.Dispatch<React.SetStateAction<FormData>>;
 }
