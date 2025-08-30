@@ -75,7 +75,7 @@ button:focus-visible {
   background-repeat: no-repeat;
   background-position: center;
   width: 350px;
-  height: 450px;
+  height: 500px;
 }
 
 .div-main-block {
@@ -129,7 +129,7 @@ input[type="text"] {
   padding-bottom: 5px;
   height: 40px;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   margin-top: 6px;
 }
 
@@ -159,12 +159,25 @@ button {
   background-color: #483ffc !important;
 }
 
+.btn-next:hover, .btn-confirm:hover {
+  color: lightgray;
+}
+
+.btn-next:hover {
+  border: 1px solid var(--main-blue);
+}
+
 .btn-back {
   background-color: white;
   color: gray;
   left: 60px;
   width: fit-content;
   padding: 0;
+}
+
+.btn-back:hover {
+  color: lightgray;
+  border: 1px solid transparent;
 }
 
 .row {
@@ -271,4 +284,22 @@ button {
   color: gray;
   font-size: 14px;
   margin-bottom: 20px;
+}
+
+label.not-filled {
+  color: red;
+}
+
+input.not-filled {
+  border: 1px solid red;
+}
+
+.not-selected {
+  border: 1px solid red;
+}
+
+.p-warning {
+  color: red !important;
+  margin: 5px 0px 10px 0px;
+  font-size: 12px;
 }

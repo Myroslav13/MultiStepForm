@@ -1,6 +1,13 @@
-import type { Props } from '../interface'
+import type { FormData } from '../interface'
 
-function SelectPlan({data, setData}:Props) {
+interface Props {
+  data: FormData;
+  setData: React.Dispatch<React.SetStateAction<FormData>>;
+  setClassStatesPlan: React.Dispatch<React.SetStateAction<string>>;
+  classStatePlan: string;
+}
+
+function SelectPlan({data, setData, classStatePlan, setClassStatesPlan}:Props) {
 
     return (
         <div className="text-start">
@@ -8,10 +15,10 @@ function SelectPlan({data, setData}:Props) {
             <p>You have the option of monthly or yearly billing.</p>
 
             <div className="row gap-3 mt-4">
-                <div className={`col-4 ${data.selectedPlan === 1? "active" : ""}`} onClick={() => setData(prev => ({
+                <div className={`col-4 ${data.selectedPlan === 1? "active" : ""} ${classStatePlan}`} onClick={() => {setClassStatesPlan(""); setData(prev => ({
                     ...prev,
                     selectedPlan: 1
-                }))}>
+                }))}}>
                     <img src="assets/images/icon-arcade.svg"></img>
                     <div>
                         <h2>Arcade</h2>
@@ -20,10 +27,10 @@ function SelectPlan({data, setData}:Props) {
                     </div>
                 </div>
                 
-                <div className={`col-4 ${data.selectedPlan === 2? "active" : ""}`} onClick={() => setData(prev => ({
+                <div className={`col-4 ${data.selectedPlan === 2? "active" : ""} ${classStatePlan}`} onClick={() => {setClassStatesPlan(""); setData(prev => ({
                     ...prev,
                     selectedPlan: 2
-                }))}>
+                }))}}>
                     <img src="assets/images/icon-advanced.svg"></img>
                     <div>
                         <h2>Advanced</h2>
@@ -32,10 +39,10 @@ function SelectPlan({data, setData}:Props) {
                     </div>
                 </div>
                 
-                <div className={`col-4 ${data.selectedPlan === 3? "active" : ""}`} onClick={() => setData(prev => ({
+                <div className={`col-4 ${data.selectedPlan === 3? "active" : ""} ${classStatePlan}`} onClick={() => {setClassStatesPlan(""); setData(prev => ({
                     ...prev,
                     selectedPlan: 3
-                }))}>
+                }))}}>
                     <img src="assets/images/icon-pro.svg"></img>
                     <div>
                         <h2>Pro</h2>
@@ -44,6 +51,8 @@ function SelectPlan({data, setData}:Props) {
                     </div>
                 </div>
             </div>
+
+            {classStatePlan !== "" ?<p className='p-warning mb-0'>Select any plan</p> : <></>}
 
             <div className="div-time-period d-flex gap-3 align-items-center mt-4">
                 <label className={`form-check-label ${data.selectedTime === true? "active": ""}`} htmlFor="switchCheckDefault">Monthly</label>
