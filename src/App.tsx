@@ -1,17 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import SideBlock from './SideBlock'
 import PersonalInfo from './Components/PersonalInfo'
 import SelectPlan from './Components/SelectPlan'
 import AddOns from './Components/AddOns'
 import Summary from './Components/Summary'
 import Congrats from './Congrats'
 import type { AddOn, Plan, FormData } from './interface'
+import SideBlockMobile from './SideBlockMobile'
+import SideBlockDesktop from './SideBlockDesktop'
 
 function App() {
   const [pageNumber, setPageNumber] = useState(0)
   const [classStates, setClassStates] = useState<string[]>(["", "", ""])
   const [classStatePlan, setClassStatesPlan] = useState<string>("")
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
   const allPlans: Plan[] = [
     {name: "Arcade", monthlyPayment: 9, yearlyPayment: 90}, 
@@ -30,6 +32,10 @@ function App() {
     selectedPlan: 0,
     selectedTime: true,
     selectedAddOns: []
+  })
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
   })
 
   // Data check
@@ -63,21 +69,34 @@ function App() {
   }
 
   return (
-    <div className='div-main-block d-flex rounded-3 p-3'>
-      <SideBlock pageNumber={pageNumber}></SideBlock>
-      <div className="div-main-form position-relative">
-        {pageNumber === 0 ? <PersonalInfo data={data} setData={setData} classStates={classStates}></PersonalInfo> : <></>}
-        {pageNumber === 1 ? <SelectPlan data={data} setData={setData} classStatePlan={classStatePlan} setClassStatesPlan={setClassStatesPlan}></SelectPlan> : <></>}
-        {pageNumber === 2 ? <AddOns data={data} setData={setData}></AddOns> : <></>}
-        {pageNumber === 3 ? <Summary data={data} allPlans={allPlans} allAddOns={allAddOns} setPageNumber={setPageNumber}></Summary> : <></>}
-        {pageNumber === 4 ? <Congrats></Congrats> : <></>}
+    <>
+      {windowWidth < 576 ? <SideBlockMobile pageNumber={pageNumber} windowWidth={windowWidth}></SideBlockMobile> : <></>}
+      
+      <div className='div-main-block d-flex rounded-3 p-0 p-sm-3 pe-0 position-relative'>
+        {windowWidth >= 576 ? <SideBlockDesktop pageNumber={pageNumber}></SideBlockDesktop> : <></>}
+        <div className="div-main-form position-relative">
+          {pageNumber === 0 ? <PersonalInfo data={data} setData={setData} classStates={classStates}></PersonalInfo> : <></>}
+          {pageNumber === 1 ? <SelectPlan data={data} setData={setData} classStatePlan={classStatePlan} setClassStatesPlan={setClassStatesPlan}></SelectPlan> : <></>}
+          {pageNumber === 2 ? <AddOns data={data} setData={setData}></AddOns> : <></>}
+          {pageNumber === 3 ? <Summary data={data} allPlans={allPlans} allAddOns={allAddOns} setPageNumber={setPageNumber}></Summary> : <></>}
+          {pageNumber === 4 ? <Congrats></Congrats> : <></>}
 
-        <div>
+          <div className='d-none d-sm-block'>
+            {(pageNumber > 0 && pageNumber !== 4) ? <button className="btn-back" onClick={() => setPageNumber(prev => (prev - 1))}>Go Back</button>: <></>}
+            {pageNumber < 4 ? <button className={`${pageNumber === 3 ? "btn-confirm":"btn-next"}`} onClick={() => {!checkData(pageNumber) ? setPageNumber(prev => (prev + 1)) : null}}>{pageNumber === 3 ? "Confirm":"Next Step"}</button>: <></>}
+          </div>
+        </div>
+      </div>
+
+      {pageNumber !== 4 ? 
+        <div className='div-lower-block d-block d-sm-none'>
           {(pageNumber > 0 && pageNumber !== 4) ? <button className="btn-back" onClick={() => setPageNumber(prev => (prev - 1))}>Go Back</button>: <></>}
           {pageNumber < 4 ? <button className={`${pageNumber === 3 ? "btn-confirm":"btn-next"}`} onClick={() => {!checkData(pageNumber) ? setPageNumber(prev => (prev + 1)) : null}}>{pageNumber === 3 ? "Confirm":"Next Step"}</button>: <></>}
         </div>
-      </div>
-    </div>
+        : 
+        <></>
+      }
+    </>
   )
 }
 

@@ -1,17 +1,17 @@
 import type { FormData } from '../interface'
 
 interface Props {
-  data: FormData;
-  classStates: string[];
-  setData: React.Dispatch<React.SetStateAction<FormData>>;
+    data: FormData;
+    classStates: string[];
+    setData: React.Dispatch<React.SetStateAction<FormData>>;
 }
 
 function PersonalInfo({data, setData, classStates}:Props) {
-    console.log(classStates)
+
     return ( 
         <div className="text-start">
             <h1>Personal info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
+            <p className='p-description'>Please provide your name, email address, and phone number.</p>
 
             <div className={`d-flex flex-column align-items-start`}>
                 <label className={`${classStates[0]}`}>Name</label>

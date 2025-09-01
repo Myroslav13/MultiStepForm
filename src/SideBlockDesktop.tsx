@@ -2,10 +2,10 @@ interface Props {
     pageNumber: number;
 }
 
-function SideBlock({pageNumber}: Props) {
+function SideBlockDesktop({pageNumber}: Props) {
 
     return (
-        <div className="div-side-block d-flex flex-column gap-3 rounded-3 text-white pt-4 ps-4">
+        <div className="div-side-block d-none d-sm-flex flex-column gap-3 rounded-3 text-white pt-4 ps-3 ps-md-4">
             <div className="d-flex align-items-center gap-3">
                 <p className={`div-circle ${pageNumber === 0? "active": ""} m-0 rounded-circle border d-flex justify-content-center align-items-center`}>
                     1
@@ -37,7 +37,7 @@ function SideBlock({pageNumber}: Props) {
             </div>
 
             <div className="d-flex align-items-center gap-3">
-                <p className={`div-circle ${pageNumber === 3? "active": ""} m-0 rounded-circle border d-flex justify-content-center align-items-center`}>
+                <p className={`div-circle ${(pageNumber === 3 || pageNumber === 4)? "active": ""} m-0 rounded-circle border d-flex justify-content-center align-items-center`}>
                     4
                 </p>
                 <div className="d-flex flex-column align-items-start text-uppercase">
@@ -49,4 +49,4 @@ function SideBlock({pageNumber}: Props) {
     )
 }
 
-export default SideBlock
+export default SideBlockDesktop

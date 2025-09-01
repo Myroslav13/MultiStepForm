@@ -5,7 +5,7 @@ function AddOns({data, setData}:Props) {
     return (
         <div className="text-start">
             <h1>Pick add-ons</h1>
-            <p>Add-ons help enhance your gaming experience.</p>
+            <p className='p-description'>Add-ons help enhance your gaming experience.</p>
             
             <div>
                 <div className={`div-addon ${data.selectedAddOns.includes(0)? "active" : ""} d-flex align-items-center justify-content-between`} onClick={() => setData(prev => ({
@@ -36,7 +36,7 @@ function AddOns({data, setData}:Props) {
                     {data.selectedTime === true ? <p className="p-plus-money">+$2/mo</p> : <p className="p-plus-money">+$20/yr</p>}
                 </div>
                 
-                <div className={`div-addon ${data.selectedAddOns.includes(2)? "active" : ""} d-flex align-items-center justify-content-between`} onClick={() => setData(prev => ({
+                <div className={`div-addon ${data.selectedAddOns.includes(2)? "active" : ""} d-flex align-items-center justify-content-between m-0`} onClick={() => setData(prev => ({
                     ...prev,
                     selectedAddOns: prev.selectedAddOns.includes(2) ? prev.selectedAddOns.filter(item => item != 2) : [...prev.selectedAddOns, 2],
                 }))}>

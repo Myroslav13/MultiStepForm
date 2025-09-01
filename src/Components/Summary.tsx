@@ -28,7 +28,7 @@ function Summary({data, allPlans, allAddOns, setPageNumber}:Props) {
     return (
         <div className="text-start">
             <h1>Finishing up</h1>
-            <p>Double-check everything looks OK before confirming.</p>
+            <p className='p-description'>Double-check everything looks OK before confirming.</p>
 
             <div>
                 <div className="div-expenses" style={{paddingBottom: data.selectedAddOns.length > 0 ? "0px":"20px"}}>
